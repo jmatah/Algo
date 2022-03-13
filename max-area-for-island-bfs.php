@@ -29,7 +29,7 @@ class Solution {
                         foreach( range(0, 3) as $k ) {
                             $nr = $curr[0] + $row_dir[$k];
                             $nc = $curr[1] + $col_dir[$k];
-                            if( $nr > 0 && $nr < $rows && $nc > 0 && $nc < $cols && $grid[$nr][$nc] == 1 && empty( $seen[$nr][$nc] ) ){
+                            if( $nr >= 0 && $nr < $rows && $nc >= 0 && $nc < $cols && $grid[$nr][$nc] == 1 && empty( $seen[$nr][$nc] ) ){
                                 $q[] = [$nr, $nc];
                                 $seen[$nr][$nc] = 1;
                             }
@@ -59,6 +59,7 @@ class Solution {
 */
 
 $grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]];
+$grid = [[1,1]];
 $sol = new Solution();
 $max = $sol->maxAreaOfIsland($grid);
 echo $max;
