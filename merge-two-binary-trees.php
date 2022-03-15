@@ -2,7 +2,7 @@
 
 /**
  * Definition for a binary tree node.
- * 
+ *  https://developpaper.com/php-implementation-data-structure-binary-search-tree/
  **/
 class Node
 {
@@ -72,9 +72,12 @@ class Solution {
 
     function printTree_bfs( $node = null )
     {
-        if( $node->root == null ) {
+        if( $node == null || ($node->root && $node->root == null ) ) {
             echo "\nEmpty Tree";
             return false;
+        }
+        else if($node->root != null) {
+            $node = $node->root;
         }
 
         $queue = [$node];
@@ -84,11 +87,10 @@ class Solution {
                 if( $q->val != 0 )
                     echo $q->val.' ';
                 else
-                    echo 'null';
+                    echo 'null ';
             }
             $next_level = [];
-            foreach( $queue as $q )
-            {
+            foreach( $queue as $q ) {
                 if( ! empty( $q->left ) ){
                     $next_level[] = $q->left;
                 }
@@ -113,12 +115,17 @@ class Solution {
      * @return TreeNode
      */
     function mergeTrees($root1, $root2) {
-        if( $root1->root ==  null ){
+        if( $root1 == null ){
             return $root2;
         } 
-        if( $root2->root == null ){
+        if( $root2 == null ){
             return $root1;
         }
+
+        if( $root1->root )
+            $root1 = $root1->root;
+        if( $root2->root )
+            $root2 = $root2->root;
 
         $root1->val += $root2->val;
         $root1->left = $this->mergeTrees($root1->left, $root2->left);
@@ -141,7 +148,7 @@ $root2->root->left->right = new Node(4);
 $root2->root->right->right = new Node(7);
 
 $sol = new Solution();
-//$root3 = $sol->mergeTrees($root1, $root2);
+$root3 = $sol->mergeTrees($root1, $root2);
 $sol->printTree_bfs($root1);
 $sol->printTree_bfs($root2);
 $sol->printTree_bfs($root3);
