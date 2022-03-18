@@ -8,7 +8,7 @@ class Node
 {
     public $val = null;
     public $left = null;
-    public $right = null;
+    public $right = null;;
     function __construct($val = 0, $left = null, $right = null) {
         $this->val = $val;
         $this->left = $left;
