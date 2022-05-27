@@ -28,7 +28,9 @@ class Solution{
             if( $str1 === $str2 )
                 return true;
 
+
             $str2[$s2[$i]]--;
+
             $str2[$s2[$i+strlen($s1)]]++;
         }
         return false;
