@@ -8,7 +8,7 @@ class Node
 {
     public $val = null;
     public $left = null;
-    public $right = null;;
+    public $right = null;
     function __construct($val = 0, $left = null, $right = null) {
         $this->val = $val;
         $this->left = $left;
@@ -62,12 +62,12 @@ class Solution {
         
         $current = $node->root;
         if( $current->left )
-            $this->printTree_dfs($current);
+            $this->printTree_dfs($current->left);
 
         echo " ".$current->val;
 
         if( $current->right)
-            $this->printTree_dfs($current);
+            $this->printTree_dfs($current->right);
     }
 
     function printTree_bfs( $node = null )
