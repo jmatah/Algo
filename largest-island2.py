@@ -1,3 +1,9 @@
+#
+# LeetCode 695. Max Area of Island
+#
+# Depth-First Search (Recursive) 
+#
+
 class Solution:
     def maxAreaOfIsland(self, grid:list[list[int]])->int:
         seen=set()
