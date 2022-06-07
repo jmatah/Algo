@@ -1,3 +1,6 @@
+#
+# LeetCode 167. Two Sum II - Input Array Is Sorted Python using hash table
+#
 class Solution:
     def twoSum(self, numbers: list[int], target: int) -> list[int]:
         ret = [0,0]
